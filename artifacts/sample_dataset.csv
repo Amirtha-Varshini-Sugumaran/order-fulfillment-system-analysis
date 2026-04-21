@@ -1,0 +1,14 @@
+order_id,customer,location,status,driver,delivery_time
+ORD-1001,Dublin Office Supplies,Dublin 18,Delivered,Sean Murphy,2026-05-01 10:35
+ORD-1002,Greenfield Pharmacy,Lucan,Out for Delivery,Aoife Byrne,2026-05-01 13:20
+ORD-1003,River Cafe,Galway City,Delayed,Conor Walsh,2026-05-01 15:45
+ORD-1004,Northside Hardware,Swords,Assigned,Niamh Kelly,2026-05-01 16:30
+ORD-1005,Atlantic Print Ltd,Cork City,Pending,,2026-05-02 09:00
+ORD-1006,Westport Dental Clinic,Westport,Delivered,Conor Walsh,2026-05-01 11:50
+ORD-1007,Bright Start Creche,Naas,Failed Delivery,Aoife Byrne,2026-05-01 12:10
+ORD-1008,Harbour Medical Centre,Dun Laoghaire,Assigned,Sean Murphy,2026-05-01 17:00
+ORD-1009,City Books Ltd,Dublin 2,Delayed,Niamh Kelly,2026-05-01 14:15
+ORD-1010,Oak Furniture Store,Limerick,Pending,,2026-05-02 10:30
+ORD-1011,Midlands Auto Parts,Athlone,Out for Delivery,Conor Walsh,2026-05-01 16:00
+ORD-1012,Fresh Foods Market,Bray,Delivered,Sean Murphy,2026-05-01 09:40
+

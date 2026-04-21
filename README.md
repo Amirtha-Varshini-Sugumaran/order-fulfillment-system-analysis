@@ -62,11 +62,5 @@ It shows how a Business Systems Analyst helps move a business problem from uncle
 - API and workflow understanding
 - SDLC communication between business and technical teams
 
-## How To Explain This In An Interview
-
-I would explain this as a project where I analysed a manual logistics order and delivery process and helped define a system to improve visibility and coordination.
-
-The company was using Excel and email to track orders, assign drivers, and update customers. I documented the current process, identified pain points, gathered stakeholder needs, and translated them into business requirements, functional requirements, user stories, acceptance criteria, process flows, a logical data model, and a simple API overview.
-
 My role was similar to a Business Systems Analyst. I focused on understanding how operations, customer support, drivers, and managers worked day to day, then turned that into clear documentation for delivery teams. I also planned the work across Agile sprints so the highest-value features, like order intake, delivery assignment, and status tracking, could be delivered first.
 

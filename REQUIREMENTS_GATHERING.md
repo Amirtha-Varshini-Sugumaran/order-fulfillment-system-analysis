@@ -4,7 +4,7 @@
 
 Requirements were gathered by looking at how the delivery process actually works today, not just by asking for a wish list.
 
-The main sources were stakeholder discussions, process observation, reviewing the Excel order tracker, checking delivery update email threads, and a few informal conversations with people who handle orders every day.
+The main sources were stakeholder discussions, process observation, reviewing the Excel order tracker, checking delivery update email threads, and a few working sessions with people who handle orders every day.
 
 The goal was to understand where orders start, who touches them, how delivery status changes, what information gets missed, and what each team needs from a new system.
 
@@ -168,4 +168,3 @@ These notes were used as the input for the BRD, FRD, SRS, user stories, process 
 - Training will be needed for operations, support, and drivers so everyone uses the same statuses.
 
 - Driver updates may depend on mobile browser access, so the update flow should be short and easy to use.
-

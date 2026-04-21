@@ -33,19 +33,19 @@ The first release is intentionally focused on visibility and coordination. Large
 
 ## Key Outputs
 
-- `BRD.md` - Business Requirements Document
-- `FRD.md` - Functional Requirements Document
-- `SRS.md` - System Requirements Specification
-- `AS_IS_TO_BE.md` - Current and future process comparison
-- `USER_STORIES.md` - Agile user stories
-- `ACCEPTANCE_CRITERIA.md` - Acceptance criteria for key stories
-- `PROCESS_FLOWS.md` - Current and future process diagrams
-- `DATA_MODEL.md` - Logical data model
-- `API_OVERVIEW.md` - High-level API overview
-- `STAKEHOLDER_ANALYSIS.md` - Stakeholder table
-- `AGILE_DELIVERY_PLAN.md` - Sprint plan and delivery approach
-- `artifacts/sample_dataset.csv` - Sample order and delivery records
-- `artifacts/dashboard_mockup.md` - Simple dashboard mockup
+- `business-requirements-document.md` - Business Requirements Document
+- `functional-requirements-document.md` - Functional Requirements Document
+- `system-requirements-specification.md` - System Requirements Specification
+- `process-improvement-analysis.md` - Current and future process comparison
+- `agile-user-stories.md` - Agile user stories
+- `acceptance-criteria.md` - Acceptance criteria for key stories
+- `process-flows.md` - Current and future process diagrams
+- `logical-data-model.md` - Logical data model
+- `api-overview.md` - High-level API overview
+- `stakeholder-analysis.md` - Stakeholder table
+- `agile-delivery-plan.md` - Sprint plan and delivery approach
+- `artifacts/sample-order-delivery-data.csv` - Sample order and delivery records
+- `artifacts/operations-dashboard-mockup.md` - Simple dashboard mockup
 
 ## Business Value
 

@@ -101,7 +101,7 @@ The first release must solve the biggest pain point: lack of one reliable delive
 
 The BA supports the Agile lifecycle by:
 
-- Gathering requirements through interviews and process walkthroughs.
+- Gathering requirements through stakeholder discussions and process walkthroughs.
 - Turning business needs into user stories.
 - Writing acceptance criteria that can be tested.
 - Clarifying scope during backlog refinement.
@@ -109,4 +109,3 @@ The BA supports the Agile lifecycle by:
 - Supporting QA with test scenarios.
 - Running UAT sessions with operations and support.
 - Capturing feedback and helping the Product Owner decide priority.
-

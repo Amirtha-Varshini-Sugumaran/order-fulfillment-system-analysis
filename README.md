@@ -1,76 +1,148 @@
-# Order Fulfillment & Delivery Tracking Analysis
+# Order Fulfillment and Delivery Tracking Analysis
 
-## Overview
+## Project Overview
 
-This project documents the analysis and proposed design for an internal order fulfillment and delivery tracking system for a mid-sized Irish logistics and delivery company.
+This repository defines the requirements and system design for an internal order fulfillment and delivery tracking workflow. The proposed system replaces scattered spreadsheets, email updates, and phone follow-ups with a controlled operating model for order intake, assignment, delivery status updates, customer support visibility, and management reporting.
 
-The company currently manages customer orders, delivery assignments, and delivery updates through Excel spreadsheets, emails, phone calls, and manual follow-ups. This works while volumes are low, but it creates delays, missed updates, duplicate work, and poor visibility for customers and operations staff.
+Key capabilities:
 
-The proposed system gives the operations team one place to manage orders from intake through delivery completion. It supports order creation, delivery assignment, driver status updates, customer visibility, and basic reporting.
+- Current-state and future-state process analysis.
+- Business, functional, and system requirements.
+- User stories, acceptance criteria, and sprint planning.
+- Logical data model and API overview.
+- Operations dashboard mockup and sample delivery data.
+- Stakeholder analysis and scope decisions.
 
-## Business Problem
+## Architecture
 
-The current process depends heavily on manual tracking. Orders are entered into spreadsheets, delivery updates are sent by email or phone, and customers often call the support team because they do not have a clear delivery status.
+The repository documents a proposed application architecture rather than shipping an executable service.
 
-This creates several problems:
+```mermaid
+flowchart LR
+    customer["Customer order"]
+    operations["Operations order intake"]
+    assignment["Delivery assignment"]
+    driver["Driver status updates"]
+    support["Customer support view"]
+    dashboard["Operations dashboard"]
+    datastore["Order and delivery data store"]
 
-- Operations staff spend time chasing updates instead of managing exceptions.
-- Drivers receive assignments manually and sometimes receive changed information late.
-- Customer support cannot always answer status questions quickly.
-- Delays are only noticed after customers complain or drivers call in.
-- Managers do not have a reliable view of pending, active, delayed, or completed deliveries.
+    customer --> operations
+    operations --> assignment
+    assignment --> driver
+    driver --> datastore
+    operations --> datastore
+    datastore --> support
+    datastore --> dashboard
+```
 
-## Approach
+End-to-end pipeline:
 
-The analysis follows a practical business systems workflow:
+1. Operations creates or imports an order.
+2. The system validates required customer, address, delivery, and priority fields.
+3. A delivery is assigned to a driver or route.
+4. Drivers update status as work progresses.
+5. Support and operations users search order status from a shared source.
+6. Managers review workload, delays, and completion metrics.
 
-1. Map the current manual process and identify operational pain points.
-2. Define the future process and first-release scope.
-3. Translate business needs into BRD, FRD, SRS, user stories, and acceptance criteria.
-4. Outline the supporting data model, API concepts, dashboard view, and delivery plan.
+## Tech Stack
 
-The first release is intentionally focused on visibility and coordination. Larger features such as route optimisation, GPS tracking, and a customer portal are treated as future enhancements so the core workflow can be delivered quickly.
+| Layer | Tooling | Purpose |
+|---|---|---|
+| Requirements | Markdown | BRD, FRD, SRS, user stories, acceptance criteria |
+| Diagrams | Mermaid | Process flows and solution communication |
+| Data artifact | CSV | Sample order and delivery records |
+| API design | Markdown | Endpoint concepts and payload-level thinking |
+| Runtime | Not applicable | No executable application is included |
 
-## Key Outputs
+## Data Flow
 
-- `business-requirements-document.md` - Business Requirements Document
-- `functional-requirements-document.md` - Functional Requirements Document
-- `system-requirements-specification.md` - System Requirements Specification
-- `process-improvement-analysis.md` - Current and future process comparison
-- `agile-user-stories.md` - Agile user stories
-- `acceptance-criteria.md` - Acceptance criteria for key stories
-- `process-flows.md` - Current and future process diagrams
-- `logical-data-model.md` - Logical data model
-- `api-overview.md` - High-level API overview
-- `stakeholder-analysis.md` - Stakeholder table
-- `agile-delivery-plan.md` - Sprint plan and delivery approach
-- `artifacts/sample-order-delivery-data.csv` - Sample order and delivery records
-- `artifacts/operations-dashboard-mockup.md` - Simple dashboard mockup
+1. Ingestion: customer orders enter through operations intake or a future API/import process.
+2. Processing: order details are validated, prioritized, assigned, and updated through delivery statuses.
+3. Storage: the proposed data model stores orders, deliveries, drivers, customers, and status history.
+4. Transformation: dashboard metrics summarize active deliveries, delayed orders, completion rate, and workload.
+5. Serving: support, operations, drivers, and managers use role-specific views over the same operational data.
 
-## Business Value
+## Setup Instructions
 
-The proposed system helps the business move from reactive manual tracking to a more controlled delivery workflow.
+### Prerequisites
 
-- Operations gets a single view of active, delayed, and completed deliveries.
-- Customer support can answer basic order status questions without chasing updates.
-- Drivers receive clearer assignments and have a simple way to update status.
-- Managers get practical daily KPIs for workload, delays, and completion.
-- The business gains a foundation for future customer self-service tracking.
+- Markdown viewer or editor
+- Mermaid-compatible viewer for diagrams
+- Spreadsheet tool for opening sample CSV data
 
-## Scope Decisions
+### Environment Variables
 
-The design keeps the first release simple because adoption is the main success factor. The system focuses on order intake, delivery assignment, status updates, search, delay visibility, and dashboard reporting.
+No environment variables are required. The repository has no runtime service.
 
-Out-of-scope items such as live GPS, route optimisation, finance automation, and a customer-facing portal are documented separately to protect delivery timelines and avoid overbuilding the first version.
+### Docker Setup
 
-## Skills Demonstrated
+Docker is not required for this documentation repository.
 
-- Business process analysis
-- Requirements gathering
-- BRD, FRD, and SRS documentation
-- User stories and acceptance criteria
-- Stakeholder analysis
-- Agile sprint planning
-- Basic system and data modelling
-- API and workflow understanding
-- SDLC communication between business and technical teams
+### Local Run Steps
+
+Start with `business-requirements-document.md`, then read the supporting requirements, process, data model, API, and delivery-planning files.
+
+## Project Structure
+
+```text
+.
+|-- business-requirements-document.md      # Business goals, scope, and value
+|-- functional-requirements-document.md    # Functional behavior by area
+|-- system-requirements-specification.md   # System requirements and constraints
+|-- process-improvement-analysis.md        # Current vs future process
+|-- process-flows.md                       # Process diagrams
+|-- agile-user-stories.md                  # Product backlog stories
+|-- acceptance-criteria.md                 # Testable acceptance criteria
+|-- logical-data-model.md                  # Proposed entities and relationships
+|-- api-overview.md                        # High-level API contract concepts
+|-- stakeholder-analysis.md                # Stakeholders and needs
+|-- agile-delivery-plan.md                 # Sprint and release plan
+|-- artifacts/
+|   |-- operations-dashboard-mockup.md     # Dashboard concept
+|   |-- sample-order-delivery-data.csv     # Sample operational data
+```
+
+## Key Components
+
+### ETL Pipeline
+
+No ETL pipeline is implemented. The proposed future system could ingest orders from manual entry, CSV upload, or an external order source and transform them into normalized order and delivery records.
+
+### Streaming Pipeline
+
+No streaming pipeline is included. A future implementation could stream driver status updates or publish delivery-delay events.
+
+### dbt Models
+
+No dbt models are included. Future analytics models could calculate delivery SLA performance, delay reasons, driver workload, and order volume trends.
+
+### API Layer
+
+`api-overview.md` defines conceptual endpoints for orders, deliveries, drivers, status updates, and dashboards. It is intended to guide future implementation rather than act as runnable code.
+
+### Data Quality Checks
+
+Recommended checks include required customer details, valid delivery address, valid status transitions, assigned driver before dispatch, timestamped status updates, and delay reason capture.
+
+## Testing
+
+There are no automated tests. Requirements quality can be reviewed through traceability between business goals, user stories, acceptance criteria, data model, process flows, and API concepts.
+
+## Troubleshooting
+
+| Issue | Fix |
+|---|---|
+| Scope feels too large | Re-check first-release scope in the delivery plan |
+| API concepts do not match requirements | Trace each endpoint back to FRD/SRS behavior |
+| Dashboard metrics are unclear | Validate that the sample data includes the fields needed to calculate them |
+| Process diagrams do not render | Use a Mermaid-compatible Markdown viewer |
+
+## Future Improvements
+
+- Add OpenAPI-style endpoint definitions.
+- Add a normalized sample database schema.
+- Convert dashboard mockups into wireframes.
+- Add route optimization and GPS as later-release modules.
+- Add customer-facing delivery tracking requirements.
+- Add event definitions for delivery-delay notifications.
